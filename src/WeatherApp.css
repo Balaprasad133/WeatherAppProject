@@ -1,0 +1,89 @@
+.menu-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #f2f2f2;
+  }
+  
+ /* Main Content box  */
+  .App-Data {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(45, 44, 44);
+  }
+  
+  /* Search and button area */
+  .Menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+  
+  input {
+    padding: 10px;
+    border-radius: 14px;
+    border: 1px solid #080808;
+    margin-right: 15px;
+  }
+  
+
+  
+  /* Weather Details */
+  h2 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  /* Favorites Section  to get in box type*/
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+ 
+  li {
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+  }
+  
+  
+  /*Forecast Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Header Row */
+  thead {
+    background-color: #f2f2f2;
+    color: green;
+  }
+  
+  /* Highlight Date */
+  td:first-child {
+    font-weight: bold;
+    color: red;
+  }
+  
+  .fore{
+    margin-top: 30px;
+  }
