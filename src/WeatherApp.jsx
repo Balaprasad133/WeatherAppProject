@@ -17,7 +17,7 @@ function WeatherApp() {
         `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
       );
       if (!currentWeatherResponse.ok) {
-        throw new Error("City not Found");
+        throw new Error("City not Found,Please check the city name");
       }
       const currentWeatherData = await currentWeatherResponse.json();
       setWeatherData(currentWeatherData);
@@ -31,16 +31,16 @@ function WeatherApp() {
       }
       const forecastData = await forecastResponse.json();
 
-      // Filter forecast data for the next 3 days
-      const threeDayForecast = forecastData.list.filter((item) => {
+      // forecast data for the next few hours
+      const dayForecast = forecastData.list.filter((item) => {
         const forecastTimestamp = new Date(item.dt_txt).getTime();
         const currentTimestamp = new Date().getTime();
         return (
           forecastTimestamp > currentTimestamp &&
-          forecastTimestamp <= currentTimestamp + 1 * 24 * 60 * 60 * 1000
+          forecastTimestamp <= currentTimestamp + 1 * 24 * 60 * 60 * 1000 //we can change the time period of forecast
         );
       });
-      setForecastData(threeDayForecast);
+      setForecastData(dayForecast);
     } catch (error) {
       console.error("Error:", error.message);
       alert("City not found");
@@ -81,7 +81,10 @@ function WeatherApp() {
   return (
       <div className="menu-data">
         <div className="App-Data">
-          <div className="Menu">
+        <div>
+            <p>Search with the city name to get the temperature details</p> 
+        </div>
+          <div className="Menu">                        
             <input
               type="text"
               placeholder="Enter the city name"
@@ -117,11 +120,11 @@ function WeatherApp() {
             </div>
           )}
 
-          {/* Display temperature forecast for the next 3 days */}
+          {/* Display temperature forecast for the whole day */}
           {forecastData && (
             <div>
 
-              <h2 className="fore">-:-Forecast Data-:-</h2>
+              <h2 className="fore">-:-Forecast Data of the day-:-</h2>
               {/* <ul>
                                 {forecastData.map((forecast, index) => (
                                     <li key={index} >
@@ -158,7 +161,7 @@ function WeatherApp() {
 
           {favoriteTemps.length > 0 && (
             <div>
-              <h2>Favorites:- </h2>
+              <h2><b><u>Favorites</u></b> </h2>
               <ul>
                 {favoriteTemps.map((item, index) => (
                   <li key={index}>
