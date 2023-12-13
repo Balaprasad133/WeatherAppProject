@@ -167,7 +167,8 @@ function WeatherApp() {
               <ul>
                 {favoriteTemps.map((item, index) => (
                   <li key={index}>
-                    <h2>{item.name},{weatherData.sys.country}</h2>
+                    {/* <h2>{item.name},{weatherData.sys.country}</h2> */}
+                    <h2>{item.name}</h2>
                     <p>
                       Temperature: <b>{item.main.temp}</b> Celsius
                     </p>
