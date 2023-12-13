@@ -67,14 +67,14 @@ function WeatherApp() {
 
   // Store the items in local storage
   useEffect(() => {
-    // Load favorite temperatures from local storage on component mount
+    // Load favorite temperature
     const storedFavorites =
       JSON.parse(localStorage.getItem("favoriteTemps")) || [];
     setFavoriteTemps(storedFavorites);
   }, []);
 
   useEffect(() => {
-    // Save favorite temperatures to local storage whenever the state changes
+    // Save when it changes the state of favorite temperatures
     localStorage.setItem("favoriteTemps", JSON.stringify(favoriteTemps));
   }, [favoriteTemps]);
 

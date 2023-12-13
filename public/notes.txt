@@ -1,0 +1,6 @@
+list of task
+--Current Weather
+--Weather Forecast
+--Multiple Locations
+--Automatically location should be detect
+-- add & remove buttons
