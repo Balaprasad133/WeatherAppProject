@@ -17,7 +17,7 @@ function WeatherApp() {
         `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
       );
       if (!currentWeatherResponse.ok) {
-        throw new Error("City not Found,Please check the city name");
+        throw new Error("City not Found");
       }
       const currentWeatherData = await currentWeatherResponse.json();
       setWeatherData(currentWeatherData);
@@ -43,7 +43,7 @@ function WeatherApp() {
       setForecastData(dayForecast);
     } catch (error) {
       console.error("Error:", error.message);
-      alert("City not found");
+      alert("City not Found,Please check the city name");
       setWeatherData(null);
       setForecastData(null);
     }
@@ -103,7 +103,8 @@ function WeatherApp() {
           </div>
           {weatherData && (
             <div>
-              <h2>{weatherData.name}</h2>
+              <h2>{weatherData.name} ,{weatherData.sys.country}</h2>  
+              {/* to get the city and country */}
               <p>
                 Temperature: <b>{weatherData.main.temp}</b> Celsius
               </p>
@@ -165,7 +166,7 @@ function WeatherApp() {
               <ul>
                 {favoriteTemps.map((item, index) => (
                   <li key={index}>
-                    <h2>{item.name}</h2>
+                    <h2>{item.name},{weatherData.sys.country}</h2>
                     <p>
                       Temperature: <b>{item.main.temp}</b> Celsius
                     </p>
