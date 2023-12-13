@@ -103,7 +103,8 @@ function WeatherApp() {
           </div>
           {weatherData && (
             <div>
-              <h2>{weatherData.name} ,{weatherData.sys.country}</h2>  
+              {/* <h2>{weatherData.name},{weatherData.sys.country} </h2>   */}
+              <h2>{weatherData.name}</h2>  
               {/* to get the city and country */}
               <p>
                 Temperature: <b>{weatherData.main.temp}</b> Celsius
